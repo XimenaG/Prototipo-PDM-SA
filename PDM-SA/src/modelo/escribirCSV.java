@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileWriter;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 
 public class escribirCSV {
@@ -23,12 +24,12 @@ public class escribirCSV {
     /**
      * @param args
      */
-    public void Escribiringredientes(ListaI LI) {
+    public void EscribirMatrizTranscision(DefaultTableModel LI) {
 
         archivo = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
         archivo.setFileFilter(filtro);
-        archivo.showSaveDialog(interfaz.desktopPane);
+        archivo.showSaveDialog();
         
         File guarda = archivo.getSelectedFile();
         String ruta = "";

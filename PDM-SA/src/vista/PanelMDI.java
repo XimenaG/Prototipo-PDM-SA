@@ -28,6 +28,7 @@ public class PanelMDI extends javax.swing.JFrame {
     public PanelMDI() {
         initComponents();
         jInternalFrameMAtrizTransicion.dispose();
+        
         control = new Control();
     }
 
@@ -43,9 +44,18 @@ public class PanelMDI extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jFileChooser1 = new javax.swing.JFileChooser();
         jFrame2 = new javax.swing.JFrame();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         jInternalFrameMAtrizTransicion = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaTransicion = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
         menuBar = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         Nuevo = new javax.swing.JMenuItem();
@@ -83,8 +93,18 @@ public class PanelMDI extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jMenu3.setText("jMenu3");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
+
+        jMenu7.setText("jMenu7");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jInternalFrameMAtrizTransicion.setClosable(true);
+        jInternalFrameMAtrizTransicion.setMaximizable(true);
         jInternalFrameMAtrizTransicion.setTitle("Matriz de Transición");
         jInternalFrameMAtrizTransicion.setVisible(true);
 
@@ -123,17 +143,34 @@ public class PanelMDI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTablaTransicion);
 
+        jMenu1.setText("Guardar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Cargar Archivo");
+        jMenuBar1.add(jMenu2);
+
+        jMenu6.setText("jMenu6");
+        jMenuBar1.add(jMenu6);
+
+        jMenu8.setText("jMenu8");
+        jMenuBar1.add(jMenu8);
+
+        jInternalFrameMAtrizTransicion.setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout jInternalFrameMAtrizTransicionLayout = new javax.swing.GroupLayout(jInternalFrameMAtrizTransicion.getContentPane());
         jInternalFrameMAtrizTransicion.getContentPane().setLayout(jInternalFrameMAtrizTransicionLayout);
         jInternalFrameMAtrizTransicionLayout.setHorizontalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrameMAtrizTransicionLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jInternalFrameMAtrizTransicionLayout.setVerticalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         menuBar.setAutoscrolls(true);
@@ -221,13 +258,13 @@ public class PanelMDI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 489, Short.MAX_VALUE))
+                .addGap(0, 518, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 95, Short.MAX_VALUE))
+                .addGap(0, 322, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +293,10 @@ public class PanelMDI extends javax.swing.JFrame {
     private void jTablaTransicionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaTransicionKeyReleased
         control.cargarDatos((DefaultTableModel) this.jTablaTransicion.getModel());
     }//GEN-LAST:event_jTablaTransicionKeyReleased
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        control.guardarMatrizTranscision((DefaultTableModel) this.jTablaTransicion.getModel());
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
     
@@ -309,6 +350,15 @@ public class PanelMDI extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JInternalFrame jInternalFrameMAtrizTransicion;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaTransicion;
     private javax.swing.JMenuBar menuBar;

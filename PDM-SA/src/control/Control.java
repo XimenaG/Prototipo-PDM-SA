@@ -26,8 +26,12 @@ public class Control {
     }
     public void cargarDatos(DefaultTableModel modelo){
         this.MatrizTransicion = new Matriz(modelo); 
-        
     }
+
+    public void guardarMatrizTranscision(DefaultTableModel defaultTableModel) {
+        this.MatrizTransicion.guardarMatrizTranscisionArchivo(defaultTableModel);
+    }
+    
     
     
 }

@@ -208,5 +208,9 @@ public final class Matriz {
     public void setDatos(double[][] datos) {
         this.datos = datos;
     }
+
+    public void guardarMatrizTranscisionArchivo(DefaultTableModel defaultTableModel) {
+            
+    }
     
 }
