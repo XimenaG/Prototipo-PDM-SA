@@ -8,7 +8,8 @@ package control;
  *
  * @author cristhian
  */
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
+import javax.swing.JInternalFrame;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
 public class Control {
@@ -26,9 +27,13 @@ public class Control {
         //this.Archivo.getMatrizDeTransicion().setDatos(modelo); 
     }
    
-    public void guardarMatrizTranscision(DefaultTableModel defaultTableModel) {
-        this.Archivo.EscribirMatrizTranscision(defaultTableModel);
-        System.out.println("entro al control");
+    public void guardarMatrizTranscision(DefaultTableModel Model) {
+        this.Archivo.EscribirArchivo(Model);
+       
+    }
+
+    public void NuevoArchivo(JInternalFrame jInternalFrameMAtrizTransicion, JTable jTablaTransicion) {
+        this.Archivo.NuevoArchivo(jInternalFrameMAtrizTransicion,jTablaTransicion);
     }
     
     

@@ -47,8 +47,8 @@ public class PanelMDI extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jDesktopPane = new javax.swing.JDesktopPane();
         jInternalFrameMAtrizTransicion = new javax.swing.JInternalFrame();
+        jDesktopPane = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaTransicion = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -143,7 +143,15 @@ public class PanelMDI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTablaTransicion);
 
+        jScrollPane1.setBounds(0, 0, 590, 370);
+        jDesktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         menuGuardarMT.setText("Guardar");
+        menuGuardarMT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuGuardarMTMouseClicked(evt);
+            }
+        });
         menuGuardarMT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuGuardarMTActionPerformed(evt);
@@ -166,15 +174,11 @@ public class PanelMDI extends javax.swing.JFrame {
         jInternalFrameMAtrizTransicion.getContentPane().setLayout(jInternalFrameMAtrizTransicionLayout);
         jInternalFrameMAtrizTransicionLayout.setHorizontalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrameMAtrizTransicionLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jInternalFrameMAtrizTransicionLayout.setVerticalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrameMAtrizTransicionLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         menuBar.setAutoscrolls(true);
@@ -261,20 +265,14 @@ public class PanelMDI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1413, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 268, Short.MAX_VALUE))
+                .addGap(0, 366, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,14 +287,11 @@ public class PanelMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_AbrirActionPerformed
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
-        montarTablaTransicion();
+        control.NuevoArchivo(jInternalFrameMAtrizTransicion,jTablaTransicion);
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
- 
-        
-        
-        
+        control.guardarMatrizTranscision((DefaultTableModel) this.jTablaTransicion.getModel());     
         
     }//GEN-LAST:event_GuardarActionPerformed
 
@@ -305,9 +300,13 @@ public class PanelMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTablaTransicionKeyReleased
 
     private void menuGuardarMTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGuardarMTActionPerformed
-        control.guardarMatrizTranscision((DefaultTableModel) this.jTablaTransicion.getModel());
-        System.out.println("Entro a la accion");
+    
     }//GEN-LAST:event_menuGuardarMTActionPerformed
+
+    private void menuGuardarMTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuGuardarMTMouseClicked
+           
+    
+    }//GEN-LAST:event_menuGuardarMTMouseClicked
 
     /**
     
@@ -377,47 +376,4 @@ public class PanelMDI extends javax.swing.JFrame {
     private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 
-    private void montarTablaTransicion() {
-        Vector vector = new Vector(18);
-
-        for (int i = 2; i <= 20; i++) {
-            vector.add(i - 2, i);
-        }
-        JComboBox cantidadEstados = new JComboBox(vector);
-        JOptionPane.showMessageDialog(this, cantidadEstados, "Definir Cantidad De Estados,", WIDTH);
-
-        int nEstados = Integer.parseInt(cantidadEstados.getSelectedItem().toString());
-        System.out.println(nEstados);
-        this.modelo = new DefaultTableModel(matrizInicial(nEstados), vectorEstados(nEstados + 1));
-
-        this.jTablaTransicion.setModel(modelo);
-        this.jInternalFrameMAtrizTransicion.setVisible(true);
-        
-        this.control.Actualizar(this.modelo);
-        System.out.println("inicializar");
-
-    }
-
-    private Object[] vectorEstados(int nEstados) {
-        Object[] vectorEstados = new Object[nEstados];
-        vectorEstados[0] = " ";
-        for (int i = 1; i < vectorEstados.length; i++) {
-            vectorEstados[i] = i - 1;
-        }
-        return vectorEstados;
-    }
-
-    private Object[][] matrizInicial(int nEstados) {
-
-        Object[][] matrizInicial = new Object[nEstados][nEstados + 1];
-        for (int i = 0; i < nEstados; i++) {
-            for (int j = 0; j < nEstados + 1; j++) {
-                matrizInicial[i][j] = 0;
-            }
-        }
-        for (int i = 0; i < nEstados; i++) {
-            matrizInicial[i][0] = i;
-        }
-        return matrizInicial;
-    }
 }
