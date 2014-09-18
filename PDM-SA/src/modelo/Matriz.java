@@ -14,6 +14,7 @@ public final class Matriz {
     public Matriz() {
         this.nren = 0;
         this.ncol = 0;
+        inicializa(nren, ncol);
     }
 
     /**
@@ -23,22 +24,17 @@ public final class Matriz {
      * @param m numero de columnas
      *
      */
-    public Matriz(int n, int m) {
-        inicializa(n, m);
-    }
-
     /**
      * Inicializa las variables para los constructores.
      *
      * @param r int
      * @param c int
      */
-    private void inicializa(int r, int c) {
+    public void inicializa(int r, int c) {
         // Si la matriz es nula reserva memoria.
         if ((nren == 0 && ncol == 0) || this == null) {
             this.nren = r;
             this.ncol = c;
-
             this.datos = new double[this.nren][this.ncol];
             for (int i = 0; i < r; i++) {
                 for (int j = 0; j < c; j++) {
@@ -51,15 +47,16 @@ public final class Matriz {
     public Matriz(DefaultTableModel modelo) {
         // crea una matriz con n renglones y m columnas
 
-        nren = modelo.getRowCount();
-        ncol = modelo.getColumnCount();
+        this.nren = modelo.getRowCount();
+        this.ncol = modelo.getColumnCount()-1;
 
-        datos = new double[nren][ncol];
+        this.datos = new double[this.nren][this.ncol];
         for (int i = 0; i < nren; i++) {
             for (int j = 1; j < ncol; j++) {
-                datos[i][j] = Double.parseDouble(modelo.getValueAt(i, j).toString());
+                datos[i][j-1] = Double.parseDouble(modelo.getValueAt(i, j).toString());
             }
         }
+        System.out.println(nren+""+ncol);
         System.out.println(imprime());
     }
 
@@ -121,7 +118,8 @@ public final class Matriz {
         double suma;
 
         if (this.ncol == b.nren) {
-            Matriz resul = new Matriz(this.nren, b.ncol);
+            Matriz resul = new Matriz();
+            resul.inicializa(this.nren, b.ncol);
             for (i = 0; i < resul.nren; i++) {
                 for (j = 0; j < resul.ncol; j++) {
                     suma = 0;
@@ -139,41 +137,7 @@ public final class Matriz {
         return null;
     }
 
-    public Matriz inversa() {
-        Matriz resul = this;
-        if (resul.nren == resul.ncol && this != null) {
-            int n = resul.nren;
-            int k, j, i;
-            for (k = 0; k < n; k++) {
-                for (i = 0; i < n; i++) {
-                    for (j = 0; j < n; j++) {
-                        if ((i != k) && (j != k)) {
-                            resul.datos[i][j] -= (resul.datos[i][k] * resul.datos[k][j])
-                                    / resul.datos[k][k];
-                        }
-                    }
-                }
-
-                for (j = 0; j < n; j++) {
-                    if (j != k) {
-                        resul.datos[k][j] = -resul.datos[k][j] / resul.datos[k][k];
-                    }
-                }
-
-                for (i = 0; i < n; i++) {
-                    if (i != k) {
-                        resul.datos[i][k] = resul.datos[i][k] / resul.datos[k][k];
-                    }
-                }
-
-                resul.datos[k][k] = 1 / resul.datos[k][k];
-            }
-            return resul;
-        } else {
-            System.out.println("no se pudo");
-        }
-        return null;
-    }
+    
 
     /**
      * Metodo para poner un dato en la matriz
@@ -186,20 +150,6 @@ public final class Matriz {
         this.datos[i][j] = d;
     }
 
-    /**
-     * Copia una matriz en otra
-     *
-     * @param A matriz a copiar en la matriz que hace el llamado
-     */
-    public static Matriz igual_a(Matriz A) {
-        Matriz resul = new Matriz(A.nren, A.ncol);
-        for (int i = 0; i < A.nren; i++) {
-            for(int j = 0; j < A.ncol; j++) {
-                resul.datos[i][j] = A.datos[i][j];
-            }
-        }
-        return resul;
-    }
 
     public double[][] getDatos() {
         return datos;
@@ -209,8 +159,24 @@ public final class Matriz {
         this.datos = datos;
     }
 
-    public void guardarMatrizTranscisionArchivo(DefaultTableModel defaultTableModel) {
-            
-    }
     
+
+    public int getNren() {
+        return nren;
+    }
+
+    public void setNren(int nren) {
+        this.nren = nren;
+    }
+
+    public int getNcol() {
+        return ncol;
+    }
+
+    public void setNcol(int ncol) {
+        this.ncol = ncol;
+    }
+
+    public void guardarMatrizTranscisionArchivo(DefaultTableModel defaultTableModel) {
+    }
 }

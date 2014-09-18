@@ -13,23 +13,22 @@ import javax.swing.table.DefaultTableModel;
 import modelo.*;
 public class Control {
     
-    private Matriz MatrizTransicion;
-    private MatrizCostos Costos;
-    private leerCSV Leerarchivo;
-    private escribirCSV EscribirArchivo;
+    private Archivo Archivo;
+    
 
     public Control() {
-        this.MatrizTransicion = new Matriz();
-        this.Costos = new MatrizCostos();
-        //this.Leerarchivo = new leerCSV();
-        //this.EscribirArchivo = new escribirCSV();
+        this.Archivo = new Archivo();
     }
-    public void cargarDatos(DefaultTableModel modelo){
-        this.MatrizTransicion = new Matriz(modelo); 
+    public void Actualizar(DefaultTableModel modelo){
+        this.Archivo.setMatrizDeTransicion( new Matriz(modelo));
+        //this.Archivo.getMatrizDeTransicion().setNcol(estados);
+        //this.Archivo.getMatrizDeTransicion().setNren(estados);
+        //this.Archivo.getMatrizDeTransicion().setDatos(modelo); 
     }
-
+   
     public void guardarMatrizTranscision(DefaultTableModel defaultTableModel) {
-        this.MatrizTransicion.guardarMatrizTranscisionArchivo(defaultTableModel);
+        this.Archivo.EscribirMatrizTranscision(defaultTableModel);
+        System.out.println("entro al control");
     }
     
     

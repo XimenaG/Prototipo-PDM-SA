@@ -28,7 +28,6 @@ public class PanelMDI extends javax.swing.JFrame {
     public PanelMDI() {
         initComponents();
         jInternalFrameMAtrizTransicion.dispose();
-        
         control = new Control();
     }
 
@@ -48,11 +47,12 @@ public class PanelMDI extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jDesktopPane = new javax.swing.JDesktopPane();
         jInternalFrameMAtrizTransicion = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaTransicion = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuGuardarMT = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -143,13 +143,13 @@ public class PanelMDI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTablaTransicion);
 
-        jMenu1.setText("Guardar");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        menuGuardarMT.setText("Guardar");
+        menuGuardarMT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                menuGuardarMTActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuGuardarMT);
 
         jMenu2.setText("Cargar Archivo");
         jMenuBar1.add(jMenu2);
@@ -166,11 +166,15 @@ public class PanelMDI extends javax.swing.JFrame {
         jInternalFrameMAtrizTransicion.getContentPane().setLayout(jInternalFrameMAtrizTransicionLayout);
         jInternalFrameMAtrizTransicionLayout.setHorizontalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jInternalFrameMAtrizTransicionLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jInternalFrameMAtrizTransicionLayout.setVerticalGroup(
             jInternalFrameMAtrizTransicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jInternalFrameMAtrizTransicionLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         menuBar.setAutoscrolls(true);
@@ -257,14 +261,20 @@ public class PanelMDI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 518, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addComponent(jInternalFrameMAtrizTransicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 322, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 268, Short.MAX_VALUE))
         );
 
         pack();
@@ -291,12 +301,13 @@ public class PanelMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void jTablaTransicionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaTransicionKeyReleased
-        control.cargarDatos((DefaultTableModel) this.jTablaTransicion.getModel());
+        control.Actualizar((DefaultTableModel) this.jTablaTransicion.getModel());
     }//GEN-LAST:event_jTablaTransicionKeyReleased
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void menuGuardarMTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGuardarMTActionPerformed
         control.guardarMatrizTranscision((DefaultTableModel) this.jTablaTransicion.getModel());
-    }//GEN-LAST:event_jMenu1ActionPerformed
+        System.out.println("Entro a la accion");
+    }//GEN-LAST:event_menuGuardarMTActionPerformed
 
     /**
     
@@ -346,11 +357,11 @@ public class PanelMDI extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu helpMenu;
+    public static javax.swing.JDesktopPane jDesktopPane;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JInternalFrame jInternalFrameMAtrizTransicion;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -361,7 +372,8 @@ public class PanelMDI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaTransicion;
-    private javax.swing.JMenuBar menuBar;
+    public javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuGuardarMT;
     private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 
@@ -380,8 +392,9 @@ public class PanelMDI extends javax.swing.JFrame {
 
         this.jTablaTransicion.setModel(modelo);
         this.jInternalFrameMAtrizTransicion.setVisible(true);
-
-
+        
+        this.control.Actualizar(this.modelo);
+        System.out.println("inicializar");
 
     }
 
