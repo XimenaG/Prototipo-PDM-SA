@@ -52,10 +52,7 @@ public class PanelMDI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaTransicion = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuGuardarMT = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         menuBar = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         Nuevo = new javax.swing.JMenuItem();
@@ -146,27 +143,8 @@ public class PanelMDI extends javax.swing.JFrame {
         jScrollPane1.setBounds(0, 0, 590, 370);
         jDesktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        menuGuardarMT.setText("Guardar");
-        menuGuardarMT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuGuardarMTMouseClicked(evt);
-            }
-        });
-        menuGuardarMT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuGuardarMTActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(menuGuardarMT);
-
-        jMenu2.setText("Cargar Archivo");
+        jMenu2.setText("Cargar Matriz de Transición");
         jMenuBar1.add(jMenu2);
-
-        jMenu6.setText("jMenu6");
-        jMenuBar1.add(jMenu6);
-
-        jMenu8.setText("jMenu8");
-        jMenuBar1.add(jMenu8);
 
         jInternalFrameMAtrizTransicion.setJMenuBar(jMenuBar1);
 
@@ -291,22 +269,13 @@ public class PanelMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        control.guardarMatrizTranscision((DefaultTableModel) this.jTablaTransicion.getModel());     
+        control.guardarMatrizTransicion((DefaultTableModel) this.jTablaTransicion.getModel());     
         
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void jTablaTransicionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablaTransicionKeyReleased
         control.Actualizar((DefaultTableModel) this.jTablaTransicion.getModel());
     }//GEN-LAST:event_jTablaTransicionKeyReleased
-
-    private void menuGuardarMTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGuardarMTActionPerformed
-    
-    }//GEN-LAST:event_menuGuardarMTActionPerformed
-
-    private void menuGuardarMTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuGuardarMTMouseClicked
-           
-    
-    }//GEN-LAST:event_menuGuardarMTMouseClicked
 
     /**
     
@@ -365,14 +334,11 @@ public class PanelMDI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaTransicion;
     public javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuGuardarMT;
     private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 

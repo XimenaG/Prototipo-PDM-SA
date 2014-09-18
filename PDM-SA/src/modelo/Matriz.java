@@ -177,6 +177,5 @@ public final class Matriz {
         this.ncol = ncol;
     }
 
-    public void guardarMatrizTranscisionArchivo(DefaultTableModel defaultTableModel) {
-    }
+    
 }

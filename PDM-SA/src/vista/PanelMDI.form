@@ -294,28 +294,9 @@
         </Container>
         <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="menuGuardarMT">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuGuardarMTMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuGuardarMTActionPerformed"/>
-              </Events>
-            </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cargar Archivo"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu6"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu8"/>
+                <Property name="text" type="java.lang.String" value="Cargar Matriz de Transici&#xf3;n"/>
               </Properties>
             </Menu>
           </SubComponents>

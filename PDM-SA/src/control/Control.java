@@ -27,7 +27,7 @@ public class Control {
         //this.Archivo.getMatrizDeTransicion().setDatos(modelo); 
     }
    
-    public void guardarMatrizTranscision(DefaultTableModel Model) {
+    public void guardarMatrizTransicion(DefaultTableModel Model) {
         this.Archivo.EscribirArchivo(Model);
        
     }
